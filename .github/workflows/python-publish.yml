@@ -38,7 +38,7 @@ jobs:
 
       - name: Install FFTW3 libraries
         run: |
-          apt-get install libfftw3-dev libfftw3-doc
+          sudo apt-get -y install libfftw3-dev libfftw3-doc
 
       - uses: actions/setup-python@v4
         name: Install Python
@@ -124,7 +124,7 @@ jobs:
 
   deploy:
     name: Release
-    needs: [build_macos_wheels]
+    needs: [build_macos_wheels, build_linux_wheels]
     # if: github.repository_owner == 'pyFFTW' && startsWith(github.ref, 'refs/tags/v') && always()
     if: github.repository_owner == 'lnthach' && always()
     runs-on: ubuntu-latest
