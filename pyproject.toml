@@ -3,8 +3,8 @@ requires = ["setuptools", "wheel", "numpy>=1.19.0", "Cython>=0.29.21"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pymrsqm"
-version = "0.0.7"
+name = "pymrsqm2"
+version = "0.0.1"
 authors = [
   { name="Example Author", email="thalng@protonmail.com" },
 ]
