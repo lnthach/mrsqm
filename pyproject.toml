@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools", "wheel", "numpy>=1.19.0", "Cython>=0.29.21"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pymrsqm"
+version = "0.0.7"
+authors = [
+  { name="Example Author", email="thalng@protonmail.com" },
+]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/pypa/sampleproject"
+"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
