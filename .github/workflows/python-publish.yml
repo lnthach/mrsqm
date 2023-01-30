@@ -2,7 +2,7 @@ name: Build Wheels, Test and Release
 
 on:
   release:
-    types: [published] 
+    types: [created] 
 
 jobs:
   build_linux_wheels:
