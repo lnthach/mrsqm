@@ -124,7 +124,7 @@ jobs:
 
   deploy:
     name: Release
-    needs: [build_macos_wheels, build_linux_wheels]
+    needs: [build_macos_wheels]
     # if: github.repository_owner == 'pyFFTW' && startsWith(github.ref, 'refs/tags/v') && always()
     if: github.repository_owner == 'lnthach' && always()
     runs-on: ubuntu-latest
@@ -151,12 +151,12 @@ jobs:
       - name: Publish the source distribution on PyPI
         run: |
           PYFFTW_VERSION=$(git describe --tags)
-          # python setup.py sdist
+          python setup.py sdist
           ls -la ${{ github.workspace }}/dist
           # We prefer to release wheels before source because otherwise there is a
           # small window during which users who pip install pyfftw will require compilation.
           twine upload --repository testpypi ${{ github.workspace }}/dist/*.whl
-          # twine upload --repository testpypi ${{ github.workspace }}/dist/pyFFTW-${PYFFTW_VERSION:1}.tar.gz
+          twine upload --repository testpypi ${{ github.workspace }}/dist/pyFFTW-${PYFFTW_VERSION:1}.tar.gz
         env:
           TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
