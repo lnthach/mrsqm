@@ -156,7 +156,7 @@ jobs:
           # We prefer to release wheels before source because otherwise there is a
           # small window during which users who pip install pyfftw will require compilation.
           twine upload --repository testpypi ${{ github.workspace }}/dist/*.whl
-          twine upload --repository testpypi ${{ github.workspace }}/dist/pyFFTW-${PYFFTW_VERSION:1}.tar.gz
+          twine upload --repository testpypi ${{ github.workspace }}/dist/*.tar.gz
         env:
           TWINE_USERNAME: ${{ secrets.TWINE_USERNAME }}
           TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
