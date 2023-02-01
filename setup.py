@@ -28,7 +28,7 @@ import sys
 #       )
 
 def get_extensions():
-  return Extension(
+  return [Extension(
             name="mrsqm",                                # the extension name
             sources=["src/mrsqm/mrsqm_wrapper.pyx","src/mrsqm/sfa/MFT.cpp","src/mrsqm/sfa/DFT.cpp","src/mrsqm/sfa/SFA.cpp","src/mrsqm/sfa/TimeSeries.cpp"], # the Cython source and
                                                   # additional C++ source files
@@ -37,7 +37,7 @@ def get_extensions():
             extra_link_args=["-lfftw3", "-lm", "-L/opt/local/lib"],           
             language="c++",                        # generate and compile C++ code
 
-      )
+      )]
 
 
 def setup_package():
@@ -100,16 +100,16 @@ def setup_package():
     setup_args['install_requires'] = install_requires
     # setup_args['extras_require'] = opt_requires
 
-    # if len(sys.argv) >= 2 and (
-    #     '--help' in sys.argv[1:] or
-    #     sys.argv[1] in ('--help-commands', 'egg_info', '--version',
-    #                     'clean')):
-    #     # For these actions, NumPy is not required.
-    #     pass
-    # else:
-    #     #setup_args['packages'] = [
-    #     #    'pyfftw', 'pyfftw.builders', 'pyfftw.interfaces']
-    #     setup_args['ext_modules'] = get_extensions()
+    if len(sys.argv) >= 2 and (
+        '--help' in sys.argv[1:] or
+        sys.argv[1] in ('--help-commands', 'egg_info', '--version',
+                        'clean')):
+        # For these actions, NumPy is not required.
+        pass
+    else:
+        #setup_args['packages'] = [
+        #    'pyfftw', 'pyfftw.builders', 'pyfftw.interfaces']
+        setup_args['ext_modules'] = get_extensions()
         #setup_args['package_data'] = get_package_data()
 
     # Do a trial run to determine dependencies
