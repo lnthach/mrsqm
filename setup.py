@@ -15,7 +15,7 @@ cstuff = Extension('mrsqm.mrsqm_wrapper',
 
 setup(
     name='mrsqm',
-    version="1.0",
+    version="1.0.1",
     author='Thach Le Nguyen',
     author_email='thalng@protonmail.com',
     setup_requires=[
