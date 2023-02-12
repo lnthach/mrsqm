@@ -26,7 +26,7 @@ setup(
     package_dir={
         '': 'src'
     },
-    description='Example python module with cython.',
+    #description='Example python module with cython.',
     long_description=open('README.md').read(),
     ext_modules=cythonize([cstuff]),
 )
