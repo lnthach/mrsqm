@@ -150,7 +150,8 @@ jobs:
 
       - name: Publish the source distribution on PyPI
         run: |
-          PYFFTW_VERSION=$(git describe --tags)
+          # PYFFTW_VERSION=$(git describe --tags)
+          pip install cython
           python setup.py sdist
           ls -la ${{ github.workspace }}/dist
           # We prefer to release wheels before source because otherwise there is a
