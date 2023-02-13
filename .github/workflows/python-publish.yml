@@ -38,7 +38,7 @@ jobs:
 
       - name: Install FFTW3 libraries
         run: |
-          sudo apt-get -y install libfftw3-dev libfftw3-doc
+          sudo apt-get update; sudo apt-get -y install libfftw3-dev
 
       - uses: actions/setup-python@v4
         name: Install Python
